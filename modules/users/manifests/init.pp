@@ -10,4 +10,14 @@ class users {
   user { 'ubuntu':
     ensure => 'present',
   }
+
+  file { '/home/levkahome':
+    ensure => directory,
+    owner => 'levka',
+    group => 'levka',
+    mode => 755,
+    source => 'puppet:///modules/users/levka',
+    recurse => remote,
+    require => User['levka'],
+  }
 }
