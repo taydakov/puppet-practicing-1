@@ -4,7 +4,7 @@ node default {
     groups => ['sudo'],
     home => '/home/levkahome',
     managehome => true,
-    password => '$6$lY2Gp3Cr$zNrUB7T3yibUF/gWn5cTQ0fNv7MUmx/DZuw3E7I..Vh9tITG28BtgvXJPU4Gm4Z/9oNvlbX24KzQ9Ib1QH1B9.', # test
+    password => '$1$vb1tLY1q$y9/uOADRI2EL1bXIAD49k0', # levka
     shell => '/bin/bash',
   }
 }
