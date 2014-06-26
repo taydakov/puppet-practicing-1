@@ -9,11 +9,23 @@ class ssh::install {
 }
 
 class ssh::config {
-
+  file { "/etc/ssh/sshd_config":
+    ensure => present,
+    owner => 'root',
+    group => 'root',
+    mode => 600,
+    source => "puppet:///modules/ssh/sshd_config",
+    notify => Class["ssh::service"],
+  }
 }
 
 class ssh::service {
-
+  service { "ssh":
+    ensure => running,
+    hasstatus => true,
+    hasrestart => true,
+    enable => true,
+  }
 }
 
 Class["ssh::install"] -> Class["ssh::config"] -> Class["ssh::service"]
